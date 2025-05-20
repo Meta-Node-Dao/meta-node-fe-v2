@@ -7,7 +7,7 @@ import {
 
 export const config = getDefaultConfig({
   appName: 'Meta Node Dao',
-  projectId: 'YOUR_PROJECT_ID',
+  projectId: 'bd073c40caf35eb21853ba7ce3553196',
   chains: [
     sepolia,
     mainnet
