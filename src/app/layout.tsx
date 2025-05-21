@@ -2,8 +2,6 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Providers from "./providers";
 import Header from "@/components/Header";
-import '@rainbow-me/rainbowkit/styles.css';
-
 
 export const metadata: Metadata = {
   title: "MetaNode dao",
@@ -17,9 +15,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className='bg-white flex flex-col h-full min-h-screen text-[14px] relative <lg:pt-16'
-      >
+      <body className="bg-white flex flex-col h-full min-h-screen text-[14px] relative <lg:pt-16">
         <Providers>
           <Header />
           {children}
