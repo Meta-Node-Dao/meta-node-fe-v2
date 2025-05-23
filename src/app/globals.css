@@ -15,3 +15,7 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+.greenText { 
+  color: #6db80e;
+  font-weight: bold;
+}

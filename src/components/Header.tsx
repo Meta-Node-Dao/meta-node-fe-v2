@@ -8,7 +8,7 @@ import { Button, Menu, MenuItem, Tooltip } from '@mui/material';;
 // import MobileNav from './MobileNav';
 import { ConnectButton } from '@rainbow-me/rainbowkit';
 import useIsMobile from '@/hooks/useIsMobile';
-
+import { WalletConnectButton } from './WalletConnectButton';
 const Header: React.FC = () => {
   const router = useRouter();
   const pathname = usePathname();
@@ -180,7 +180,8 @@ const Header: React.FC = () => {
         </div>
 
         <div className="flex ml-auto top-4 right-4 gap-x-2.5 absolute items-center <lg:static">
-          <ConnectButton />
+          {/* <ConnectButton /> */}
+          <WalletConnectButton></WalletConnectButton>
           {/* {isLargeScreen && <CreateBlock />}
           <NetworkSwitcher />
           <WalletAddress />
