@@ -9,6 +9,7 @@ import { Button, Menu, MenuItem, Tooltip } from '@mui/material';;
 import useIsMobile from '@/hooks/useIsMobile';
 import WalletConnect from './wallet/WalletConnect';
 
+
 const Header: React.FC = () => {
   const router = useRouter();
   const pathname = usePathname();
