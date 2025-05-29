@@ -6,9 +6,10 @@ import Link from 'next/link';
 import ShareOutlined from '@mui/icons-material/IosShareOutlined';
 import { Button, Menu, MenuItem, Tooltip } from '@mui/material';;
 // import MobileNav from './MobileNav';
-import { ConnectButton } from '@rainbow-me/rainbowkit';
 import useIsMobile from '@/hooks/useIsMobile';
-import { WalletConnectButton } from './WalletConnectButton';
+import WalletConnect from './wallet/WalletConnect';
+
+
 const Header: React.FC = () => {
   const router = useRouter();
   const pathname = usePathname();
@@ -179,9 +180,8 @@ const Header: React.FC = () => {
           </div>
         </div>
 
-        <div className="flex ml-auto top-4 right-4 gap-x-2.5 absolute items-center <lg:static">
-          {/* <ConnectButton /> */}
-          <WalletConnectButton></WalletConnectButton>
+        <div className="flex ml-auto top-2 right-3 gap-x-2.5 absolute items-center <lg:static">
+          <WalletConnect />
           {/* {isLargeScreen && <CreateBlock />}
           <NetworkSwitcher />
           <WalletAddress />

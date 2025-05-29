@@ -1,16 +1,53 @@
-'use client'
-import { getDefaultConfig } from '@rainbow-me/rainbowkit';
+import { http, createConfig } from "wagmi";
 import {
+  arbitrum,
+  base,
+  hardhat,
   mainnet,
+  optimism,
+  polygon,
   sepolia,
-} from 'wagmi/chains';
+  avalanche,
+  bsc,
+} from "wagmi/chains";
+import { coinbaseWallet, walletConnect } from "wagmi/connectors";
 
-export const config = getDefaultConfig({
-  appName: 'Meta Node Dao',
-  projectId: 'bd073c40caf35eb21853ba7ce3553196',
+const SEPOLIA_RPC_URL = process.env.NEXT_PUBLIC_SEPOLIA_RPC_URL!;
+const HARDHAT_RPC_URL =
+  process.env.NEXT_PUBLIC_HARDHAT_RPC_URL || "http://127.0.0.1:8545";
+const WALLETCONNECT_PROJECT_ID =
+  process.env.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID!;
+
+export const config = createConfig({
   chains: [
+    mainnet,
+    hardhat,
     sepolia,
-    mainnet
+    bsc,
+    avalanche,
+    base,
+    polygon,
+    optimism,
+    arbitrum,
+  ],
+  transports: {
+    [mainnet.id]: http(),
+    [bsc.id]: http(),
+    [optimism.id]: http(),
+    [arbitrum.id]: http(),
+    [base.id]: http(),
+    [avalanche.id]: http(),
+    [polygon.id]: http(),
+    [sepolia.id]: http(SEPOLIA_RPC_URL),
+    [hardhat.id]: http(HARDHAT_RPC_URL),
+  },
+  connectors: [
+    walletConnect({
+      projectId: WALLETCONNECT_PROJECT_ID,
+    }),
+    coinbaseWallet({
+      appName: "My Dapp",
+    }),
   ],
   ssr: true,
 });
